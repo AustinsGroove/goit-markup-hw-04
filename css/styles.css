@@ -221,67 +221,6 @@ body {
 .hero-button:focus {
   background-color: var(--pressed-state-color);
 }
-.backdrop {
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  height: 100vh;
-  width: 100vw;
-  background-color: var(--modal-overlay-color);
-  opacity: 1;
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-.backdrop.is-hidden {
-  visibility: hidden;
-  opacity: 0;
-  pointer-events: none;
-}
-.modal-window {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 584px;
-  width: 408px;
-  padding: 24px;
-  background: var(--modal-background-color);
-  box-shadow: 0px 1px 1px var(--modal-box-shadow-1),
-    0px 1px 3px var(--modal-shadow-2), 0px 2px 1px var(--modal-shadow-3);
-  border-radius: 4px;
-}
-.modal-close-button {
-  display: block;
-  position: relative;
-  margin-left: auto;
-  width: 24px;
-  height: 24px;
-  background-color: var(--accent-color);
-  border: 1px solid var(--close-button-border-color);
-  border-radius: 50%;
-  transition-property: background-color, border-radius;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-.modal-close-button:hover,
-.modal-close-button:focus {
-  background-color: var(--pressed-state-color);
-  border: 0px;
-}
-.modal-close-button-icon {
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 8px;
-  height: 8px;
-  fill: var(--dark-color);
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-.modal-close-button:hover .modal-close-button-icon,
-.modal-close-button:focus .modal-close-button-icon {
-  fill: var(--white-background-color);
-}
 .features-list-item {
   flex-basis: calc((100% - 3 * 24px) / 4);
 }
@@ -392,13 +331,11 @@ body {
   border: 1px solid var(--subtle-Text-color);
   border-radius: 4px;
   color: var(--subtle-Text-color);
-  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .customer-icon {
   fill: currentColor;
-  width: 104px;
-  height: 56px;
 }
 .customer-card:hover,
 .customer-card:focus {
@@ -465,6 +402,71 @@ body {
 }
 /**
   |============================
+  | MODAL
+  |============================
+*/
+.backdrop {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--modal-overlay-color);
+  opacity: 1;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.backdrop.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+.modal-window {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-height: 584px;
+  width: 408px;
+  padding: 24px;
+  background: var(--modal-background-color);
+  box-shadow: 0px 1px 1px var(--modal-box-shadow-1),
+    0px 1px 3px var(--modal-shadow-2), 0px 2px 1px var(--modal-shadow-3);
+  border-radius: 4px;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.modal-close-button {
+  display: flex;
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  cursor: pointer;
+  background-color: var(--accent-color);
+  border: 1px solid var(--close-button-border-color);
+  border-radius: 50%;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.modal-close-button:hover,
+.modal-close-button:focus {
+  background-color: var(--pressed-state-color);
+  border: 0px;
+}
+.modal-close-button-icon {
+  fill: var(--dark-color);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.modal-close-button:hover .modal-close-button-icon,
+.modal-close-button:focus .modal-close-button-icon {
+  fill: var(--white-background-color);
+}
+/**
+  |============================
   | PORTFOLIO
   |============================
 */
@@ -487,7 +489,7 @@ body {
   border: 1px solid var(--accent-color);
   padding: 12px 24px;
   border-radius: 4px;
-  ttransition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -508,39 +510,39 @@ body {
   column-gap: 24px;
   row-gap: 48px;
 }
-.product-list-item {
-  flex-basis: calc((100% - 2 * 24px) / 3);
-  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+.product-link {
+  display: block;
+  box-shadow: 0px 1px 6px var(--shadow-color-1);
 }
-.product-list-item:hover,
-.product-list-item:focus {
-  box-shadow: 0px 1px 6px var(--card-shadow-color-1),
-    0px 1px 1px var(--shadow-color-2), 0px 2px 1px var(--card-shadow-color-1);
+.product-link:hover,
+.product-link:focus {
+  box-shadow: 0px 1px 6px var(--shadow-color-1),
+    0px 1px 1px var(--shadow-color-2), 0px 2px 1px var(--shadow-color-1);
 }
-.product-name {
-  padding: 32px 16px;
+.product-description {
   border: 1px solid #e7e9fc;
   border-top: none;
+  padding: 32px 16px;
 }
 .product-image {
   position: relative;
   overflow: hidden;
 }
-.product-overlay {
+.product-overlay-text {
   position: absolute;
   top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   transform: translateY(100%);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   background: var(--primary-brand-color);
   padding: 40px 32px;
-}
-.product-list-item:hover .product-overlay,
-.product-list-item:focus .product-overlay {
-  transform: translateY(0);
-}
-.overlay-text {
   color: var(--light-color);
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+}
+.product-link:hover .product-overlay-text,
+.product-link:focus .product-overlay-text {
+  transform: translateY(0);
 }
