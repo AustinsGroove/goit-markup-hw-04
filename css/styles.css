@@ -521,6 +521,14 @@ body {
   box-shadow: 0px 1px 6px var(--shadow-color-1),
     0px 1px 1px var(--shadow-color-2), 0px 2px 1px var(--shadow-color-1);
 }
+.product-link:hover {
+  box-shadow: 0px 1px 6px var(--shadow-color-1),
+    0px 1px 1px var(--shadow-color-2), 0px 2px 1px var(--shadow-color-1);
+}
+.product-link:focus {
+  box-shadow: 0px 1px 6px var(--shadow-color-1),
+    0px 1px 1px var(--shadow-color-2), 0px 2px 1px var(--shadow-color-1);
+}
 /* .product-link:hover,
 .product-link:focus {
   box-shadow: 0px 1px 6px var(--shadow-color-1),
@@ -548,6 +556,9 @@ body {
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
+}
+.product-link:hover .product-overlay-text {
+  transform: translateY(0%);
 }
 .product-link:focus .product-overlay-text {
   transform: translateY(0%);
