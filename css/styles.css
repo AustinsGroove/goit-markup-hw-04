@@ -38,15 +38,13 @@ h4,
 h5,
 h6,
 p {
-  margin-top: 0;
-  margin-bottom: 0;
+  margin: 0;
 }
 ul,
 ol {
-  margin-top: 0;
-  margin-bottom: 0;
-  padding-left: 0;
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 a {
   text-decoration: none;
@@ -58,7 +56,6 @@ button {
 }
 img {
   display: block;
-  max-width: 100%;
 }
 /**
   |============================
@@ -517,23 +514,6 @@ body {
   box-shadow: 0px 1px 6px var(--shadow-color-1);
   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.product-link:focus {
-  box-shadow: 0px 1px 6px var(--shadow-color-1),
-    0px 1px 1px var(--shadow-color-2), 0px 2px 1px var(--shadow-color-1);
-}
-.product-link:hover {
-  box-shadow: 0px 1px 6px var(--shadow-color-1),
-    0px 1px 1px var(--shadow-color-2), 0px 2px 1px var(--shadow-color-1);
-}
-.product-link:focus {
-  box-shadow: 0px 1px 6px var(--shadow-color-1),
-    0px 1px 1px var(--shadow-color-2), 0px 2px 1px var(--shadow-color-1);
-}
-/* .product-link:hover,
-.product-link:focus {
-  box-shadow: 0px 1px 6px var(--shadow-color-1),
-    0px 1px 1px var(--shadow-color-2), 0px 2px 1px var(--shadow-color-1);
-} */
 .product-description {
   border: 1px solid #e7e9fc;
   border-top: none;
@@ -563,7 +543,11 @@ body {
 .product-link:focus .product-overlay-text {
   transform: translateY(0%);
 }
-/* .product-link:hover .product-overlay-text,
-.product-link:focus .product-overlay-text {
-  transform: translateY(0%);
-} */
+.product-link:hover {
+  box-shadow: 0px 1px 6px var(--shadow-color-1),
+    0px 1px 1px var(--shadow-color-2), 0px 2px 1px var(--shadow-color-1);
+}
+.product-link:focus {
+  box-shadow: 0px 1px 6px var(--shadow-color-1),
+    0px 1px 1px var(--shadow-color-2), 0px 2px 1px var(--shadow-color-1);
+}
